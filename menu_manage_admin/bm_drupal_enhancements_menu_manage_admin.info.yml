@@ -1,0 +1,7 @@
+name: 'BM Drupal Enhancements - Menu Manage Admin'
+type: module
+description: 'Enhances the admin menu manage page with collapse/expand, filters, and counts.'
+core_version_requirement: ^11
+package: 'BM Drupal Enhancements'
+dependencies:
+  - drupal:menu_ui

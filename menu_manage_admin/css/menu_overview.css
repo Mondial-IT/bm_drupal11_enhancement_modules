@@ -1,0 +1,51 @@
+.bm-menu-manage-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.bm-menu-manage-buttons {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.bm-menu-filter,
+.bm-menu-filter-secondary {
+  min-width: 220px;
+}
+
+.bm-menu-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin-right: 0.25rem;
+  font-size: 1rem;
+  padding: 0 0.2rem;
+  line-height: 1;
+}
+
+.bm-menu-toggle-spacer {
+  display: inline-block;
+  width: 1rem;
+}
+
+.bm-menu-hidden {
+  display: none;
+}
+
+table[data-drupal-selector="edit-links"] thead th {
+  position: sticky;
+  top: 0;
+  background: var(--admin-menu-header-bg, #f8f8f8);
+  z-index: 2;
+}
+
+table[data-drupal-selector="edit-links"] tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+table[data-drupal-selector="edit-links"] tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
