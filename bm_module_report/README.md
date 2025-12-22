@@ -1,7 +1,3 @@
-Here’s a drop-in **`README.md`** you can place in `web/modules/custom/bm_module_report/README.md`.
-
----
-
 # BM Module Report
 
 **Drupal 11** admin report that inventories your site’s modules and maps them to their **Composer packages**.
@@ -179,3 +175,5 @@ Proprietary / internal use (custom). Adjust to your organization’s policy as n
 
 Blue Marloc – Engineering
 Open an internal ticket with your Ops/Platform team for changes or feature requests.
+
+<img width="1901" height="827" alt="image" src="https://github.com/user-attachments/assets/f1d58bf8-c3c0-41e9-b511-4cc7bba7da23" />
