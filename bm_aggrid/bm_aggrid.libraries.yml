@@ -1,0 +1,26 @@
+aggrid.base:
+  remote: https://cdn.jsdelivr.net/npm/ag-grid-community@31.2.0/dist/
+  css:
+    theme:
+      https://cdn.jsdelivr.net/npm/ag-grid-community@31.2.0/styles/ag-grid.css: { type: external }
+      https://cdn.jsdelivr.net/npm/ag-grid-community@31.2.0/styles/ag-theme-quartz.css: { type: external }
+      css/aggrid-display.css: {}
+  js:
+    https://cdn.jsdelivr.net/npm/ag-grid-community@31.2.0/dist/ag-grid-community.min.js: { type: external }
+    js/aggrid-init.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/once
+
+aggrid.editor:
+  js:
+    js/aggrid-editor.js: {}
+  dependencies:
+    - bm_aggrid/aggrid.base
+
+aggrid.ajax:
+  js:
+    js/aggrid-ajax.js: {}
+  dependencies:
+    - bm_aggrid/aggrid.base

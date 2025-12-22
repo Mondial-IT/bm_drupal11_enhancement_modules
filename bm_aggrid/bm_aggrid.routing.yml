@@ -1,0 +1,34 @@
+bm_aggrid.config:
+  path: '/admin/config/content/aggrid-display'
+  defaults:
+    _form: '\Drupal\bm_aggrid\Form\AggridDisplayConfigForm'
+    _title: 'AG Grid display settings'
+  requirements:
+    _permission: 'administer aggrid display'
+
+bm_aggrid.grid:
+  path: '/aggrid-display/grid/{config_id}'
+  defaults:
+    _controller: '\Drupal\bm_aggrid\Controller\AggridDisplayController::displayGrid'
+    _title: 'AG Grid display'
+  requirements:
+    _permission: 'view aggrid displays'
+
+bm_aggrid.ajax_data:
+  path: '/aggrid-display/ajax/data/{config_id}'
+  defaults:
+    _controller: '\Drupal\bm_aggrid\Controller\AggridAjaxController::loadData'
+  requirements:
+    _permission: 'view aggrid displays'
+  options:
+    _format: 'json'
+
+bm_aggrid.ajax_save:
+  path: '/aggrid-display/ajax/save-cell'
+  defaults:
+    _controller: '\Drupal\bm_aggrid\Controller\AggridAjaxController::saveCell'
+  requirements:
+    _permission: 'edit entities via aggrid'
+  methods: [POST]
+  options:
+    _format: 'json'

@@ -1,0 +1,10 @@
+{
+  "name": "bluemarloc/bm_aggrid",
+  "description": "AG Grid integration for Drupal entities.",
+  "type": "drupal-custom-module",
+  "autoload": {
+    "psr-4": {
+      "Drupal\\bm_aggrid\\": "src/"
+    }
+  }
+}

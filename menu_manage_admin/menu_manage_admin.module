@@ -1,0 +1,162 @@
+<?php
+
+declare(strict_types=1);
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements hook_form_FORM_ID_alter() for menu_overview_form.
+ */
+function menu_manage_admin_form_menu_overview_form_alter(array &$form, FormStateInterface $form_state): void {
+  _menu_manage_admin_menu_controls($form);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for menu_edit_form.
+ */
+function menu_manage_admin_form_menu_edit_form_alter(array &$form, FormStateInterface $form_state): void {
+  _menu_manage_admin_menu_controls($form);
+}
+
+/**
+ * Adds controls and attaches library for menu overview UX.
+ */
+function _menu_manage_admin_menu_controls(array &$form): void {
+  $form['#attached']['library'][] = 'menu_manage_admin/menu_overview_enhance';
+  $form['#attached']['drupalSettings']['menu_manage_admin']['version'] = '1.3.0';
+
+  if (!isset($form['bm_menu_manage_controls'])) {
+    $form['bm_menu_manage_controls'] = [
+      '#type' => 'fieldset',
+      '#weight' => isset($form['links']['#weight']) ? ((float) $form['links']['#weight'] - 0.005) : 0.0035,
+      '#attributes' => ['class' => ['bm-menu-manage-controls']],
+      'actions' => [
+        '#type' => 'container',
+        '#attributes' => ['class' => ['bm-menu-manage-buttons']],
+        'expand_all' => [
+          '#type' => 'button',
+          '#value' => t('Expand all (+)'),
+          '#attributes' => [
+            'class' => ['bm-menu-expand-all', 'button', 'button--secondary'],
+            'data-bm-menu-action' => 'expand-all',
+          ],
+        ],
+        'collapse_level_1' => [
+          '#type' => 'checkbox',
+          '#title' => t('Collapse level 1'),
+          '#title_display' => 'after',
+          '#default_value' => 0,
+          '#attributes' => [
+            'class' => ['bm-menu-collapse-level', 'form-checkbox'],
+            'data-bm-menu-level' => '1',
+          ],
+        ],
+        'collapse_level_2' => [
+          '#type' => 'checkbox',
+          '#title' => t('Collapse level 2'),
+          '#title_display' => 'after',
+          '#default_value' => 0,
+          '#attributes' => [
+            'class' => ['bm-menu-collapse-level', 'form-checkbox'],
+            'data-bm-menu-level' => '2',
+          ],
+        ],
+        'collapse_level_3' => [
+          '#type' => 'checkbox',
+          '#title' => t('Collapse level 3'),
+          '#title_display' => 'after',
+          '#default_value' => 0,
+          '#attributes' => [
+            'class' => ['bm-menu-collapse-level', 'form-checkbox'],
+            'data-bm-menu-level' => '3',
+          ],
+        ],
+        'collapse_level_4' => [
+          '#type' => 'checkbox',
+          '#title' => t('Collapse level 4'),
+          '#title_display' => 'after',
+          '#default_value' => 0,
+          '#attributes' => [
+            'class' => ['bm-menu-collapse-level', 'form-checkbox'],
+            'data-bm-menu-level' => '4',
+          ],
+        ],
+      ],
+      'filter' => [
+        '#type' => 'textfield',
+        '#title' => t('Quick filter'),
+        '#title_display' => 'invisible',
+        '#attributes' => [
+          'placeholder' => t('Filter menu items...'),
+          'class' => ['bm-menu-filter'],
+          'autocomplete' => 'off',
+        ],
+        '#description' => t('Filter by label. Matching items stay visible; ancestors of matches remain open.'),
+      ],
+    ];
+  }
+  // Insert "Collapse / Expand" header after the Menu link column.
+  if (isset($form['links']['links']['#header']) && is_array($form['links']['links']['#header'])) {
+    // insert always at index 1 in header.
+    $header = &$form['links']['links']['#header'];
+    $header = array_merge(
+      array_slice( $header, 0, 1 ),
+      [t('Collapsed')],
+      array_slice( $header, 1 )
+    );
+  }
+  // Add a server-rendered toggle column for each row.
+  if (!empty($form['links']['links']) && is_array($form['links']['links'])) {
+    $row_index = 0;
+
+    foreach (Element::children($form['links']['links']) as $key) {
+      if (!isset($form['links']['links'][$key]['#item'])) {
+        continue;
+      }
+      $row_index++;
+      $row = &$form['links']['links'][$key];
+
+      $has_children = !empty($row['#item']->subtree);
+
+      // Stable id used by JS to target rows/toggles.
+      if (empty($row['#attributes']['id'])) {
+        $row['#attributes']['id'] = 'menu-manage-row-' . $row_index;
+      }
+
+
+      $toggle_cell = [
+        '#type' => 'checkbox',
+        '#title' => t('Collapsed'),
+        '#title_display' => 'invisible',
+        '#default_value' => 0,
+        '#weight' => 1,
+        '#wrapper_attributes' => [
+          'class' => ['bm-menu-toggle-cell'],
+        ],
+        '#attributes' => [
+          'class' => ['bm-menu-toggle'],
+          'data-target-row' => $row['#attributes']['id'],
+          'aria-expanded' => 'true',
+        ],
+      ];
+      if (!$has_children) {
+        $toggle_cell['#attributes']['disabled'] = 'disabled';
+        $toggle_cell['#attributes']['aria-disabled'] = 'true';
+      }
+
+      if (isset($row['title'])) {
+        $row = _array_insert_after_key($row, 'title', ['bm-toggle-cell'=>$toggle_cell]);
+      }
+
+
+    }
+  }
+
+}
+
+function _array_insert_after_key(array $array, string $after_key, array $value): array
+{
+  $index = array_search( $after_key, array_keys( $array ) );
+  return array_slice( $array, 0, $index + 1 ) + $value + $array;
+}

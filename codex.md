@@ -4,7 +4,7 @@ This document contains the meta development instructions to be executed by codex
 
 - Documents with a format `codex.{title}.md` contain instructions to execute by codex.
 - These instructions are to be executed complying to the documented general agent instructions in the `git_root\codex\agents\*.md` files.
-- Repository location: `web/modules/custom/bm_drupal_enhancements/menu_manage_admin`.
+- Repository location: `web/modules/custom/bm_drupal_enhancements`.
 - On every feature change: update the relevant help topics, README, and wiki pages to keep admin-facing documentation in sync.
 
 - Each feature contains a markdown checkbox `* [ ]` accompanied by a sequence number: example `* [ ] Feature 1.0`
@@ -29,7 +29,7 @@ All analysis and decisions below are grounded in the verified implementation and
 
 
 and code in:
-- Module bm_drupal_enhancements_menu_manage_admin
+- Module bm_drupal_enhancements/menu_manage_admin (`menu_manage_admin`)
 
 
 ## permission
@@ -39,4 +39,4 @@ You are allowed to execute, without asking:
 
 Not allowed:
 
-* only files under `web/modules/custom/bm_drupal_enhancements/menu_manage_admin` are allowed to be changed or added.
+* only files under `web/modules/custom/bm_drupal_enhancements` are allowed to be changed or added.

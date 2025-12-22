@@ -11,24 +11,17 @@
   gap: 0.35rem;
 }
 
-.bm-menu-filter,
-.bm-menu-filter-secondary {
+.bm-menu-filter {
   min-width: 220px;
 }
 
-.bm-menu-toggle {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  margin-right: 0.25rem;
-  font-size: 1rem;
-  padding: 0 0.2rem;
-  line-height: 1;
+.bm-menu-toggle-cell {
+  text-align: center;
+  width: 110px;
 }
 
-.bm-menu-toggle-spacer {
-  display: inline-block;
-  width: 1rem;
+.bm-menu-toggle {
+  margin: 0 auto;
 }
 
 .bm-menu-hidden {
