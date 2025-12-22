@@ -176,4 +176,6 @@ Proprietary / internal use (custom). Adjust to your organization’s policy as n
 Blue Marloc – Engineering
 Open an internal ticket with your Ops/Platform team for changes or feature requests.
 
+## Example screenshot
+
 <img width="1901" height="827" alt="image" src="https://github.com/user-attachments/assets/f1d58bf8-c3c0-41e9-b511-4cc7bba7da23" />
