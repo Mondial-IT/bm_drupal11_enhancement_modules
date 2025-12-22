@@ -1,0 +1,7 @@
+name: 'BM Admin Reports'
+type: module
+description: 'Various admin reports.'
+core_version_requirement: ^11
+package: BM Drupal Enhancements
+dependencies:
+  - drupal:help

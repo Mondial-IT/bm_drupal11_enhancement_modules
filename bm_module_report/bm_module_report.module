@@ -1,0 +1,32 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function bm_module_report_help($route_name, RouteMatchInterface $route_match): string {
+  if ($route_name === 'help.page.bm_module_report') {
+    $output = '<h2>' . t('Mondial-IT Module Report') . '</h2>';
+    $output .= '<p>' . t('Lists every module with its machine name, composer package, and enabled state. Exposes a downloadable composer.json fragment for auditing deployments.') . '</p>';
+
+    $output .= '<h3>' . t('Menus') . '</h3><ul>';
+    $output .= '<li>' . t('<strong>Module Composer Report</strong> — under Reports and links directly to the overview.') . '</li>';
+    $output .= '<li>' . t('<strong>Composer Report</strong> — duplicate link under Blue Marloc » Development for convenience.') . '</li>';
+    $output .= '</ul>';
+
+    $output .= '<h3>' . t('URIs') . '</h3><ul>';
+    $output .= '<li>' . t('<code>@uri</code> (<code>@route</code>) — Primary report view.', [
+      '@uri' => '/admin/reports/module-composer',
+      '@route' => 'bm_module_report.report',
+    ]) . '</li>';
+    $output .= '<li>' . t('<code>@uri</code> (<code>@route</code>) — Downloadable composer requirements snapshot.', [
+      '@uri' => '/admin/reports/module-composer/download',
+      '@route' => 'bm_module_report.download',
+    ]) . '</li>';
+    $output .= '</ul>';
+
+    return $output;
+  }
+  return '';
+}

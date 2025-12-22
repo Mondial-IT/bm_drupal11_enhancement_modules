@@ -1,8 +1,0 @@
-name: 'BM Drupal Enhancements - Menu Manage Admin (deprecated)'
-type: module
-description: 'Placeholder to allow uninstall after rename to menu_manage_admin.'
-core_version_requirement: ^11
-package: 'BM Drupal Enhancements (deprecated)'
-hidden: true
-dependencies:
-  - drupal:menu_ui

@@ -1,0 +1,7 @@
+name: 'Mondial-IT Module-Report'
+type: module
+description: 'Mondial-it - Admin report with modules with disk name, composer package and enabled state.'
+core_version_requirement: '^11'
+package: Mondial-IT
+dependencies:
+  - bm_main:bm_main
