@@ -5,3 +5,13 @@ admin_reports.display_database_table_sizes:
     _title: 'Database table sizes'
   requirements:
     _permission: 'access administration pages'
+#
+# on click table row
+# admin_reports.routing.yml
+admin_reports.get_table_fields:
+  path: '/admin-reports/get-table-fields'
+  defaults:
+    _controller: '\Drupal\admin_reports\Controller\TableFieldController::ajaxGetFields'
+    _title: 'Table fields'
+  requirements:
+    _permission: 'access administration pages'

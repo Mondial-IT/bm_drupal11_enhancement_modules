@@ -1,6 +1,6 @@
-name: 'BM Admin Reports'
+name: 'BM Various Admin Reports'
 type: module
-description: 'Various admin reports.'
+description: 'Various admin reports: Database Table Sizes, '
 core_version_requirement: ^11
 package: BM Drupal Enhancements
 dependencies:

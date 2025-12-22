@@ -1,7 +1,7 @@
-name: 'Mondial-IT Module-Report'
+name: 'BM Module-Composer state report'
 type: module
-description: 'Mondial-it - Admin report with modules with disk name, composer package and enabled state.'
+description: 'Admin report with modules with disk name, composer package and enabled state.'
 core_version_requirement: '^11'
-package: Mondial-IT
+package: BM Drupal Enhancements
 dependencies:
   - bm_main:bm_main

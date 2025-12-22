@@ -1,0 +1,8 @@
+table_click_js:
+  version: 1.x
+  js:
+    js/admin_reports.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/drupal.ajax

@@ -1,6 +1,0 @@
-admin_reports:display_database_table_sizes:
-  title: 'Database table sizes'
-  description: 'Display database table sizes'
-  route_name: admin_reports.display_database_table_sizes
-  parent: bm_main.bluemarloc_enhancements
-  weight: 1

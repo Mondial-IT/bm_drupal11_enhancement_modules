@@ -1,0 +1,14 @@
+admin_reports:display_database_table_sizes:
+  title: 'Database table sizes'
+  description: 'Display database table sizes'
+  route_name: admin_reports.display_database_table_sizes
+  parent: system.admin_reports
+  weight: 100
+#
+# and a duplicate under blue marloc developer
+admin_reports.admin_reports:
+  title: 'Admin Reports'
+  description: 'Display Database table sizes.'
+  route_name: admin_reports.display_database_table_sizes
+  parent: bm_main.bluemarloc_developer
+  weight: 100

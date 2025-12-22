@@ -1,4 +1,4 @@
-name: 'BM Drupal Enhancements - Menu Manage Admin'
+name: 'Enhanced: Menu/Manage/Admin form'
 type: module
 description: 'Enhances the admin menu manage page with collapse/expand, filters, and counts.'
 core_version_requirement: ^11
