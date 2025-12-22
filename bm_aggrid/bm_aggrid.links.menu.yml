@@ -1,6 +1,0 @@
-bm_aggrid.config:
-  title: 'AG Grid displays'
-  description: 'Configure AG Grid powered entity listings.'
-  route_name: bm_aggrid.config
-  parent: system.admin_content
-  weight: 50

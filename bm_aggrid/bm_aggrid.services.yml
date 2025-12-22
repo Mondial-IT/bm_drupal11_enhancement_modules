@@ -1,8 +1,0 @@
-services:
-  bm_aggrid.config:
-    class: Drupal\bm_aggrid\Service\AggridConfigService
-    arguments: ['@config.factory', '@entity_type.manager', '@entity_field.manager']
-
-  bm_aggrid.data:
-    class: Drupal\bm_aggrid\Service\AggridDataService
-    arguments: ['@entity_type.manager', '@entity_field.manager', '@current_user']
