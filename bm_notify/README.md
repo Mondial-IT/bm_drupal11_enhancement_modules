@@ -7,6 +7,8 @@ Lightweight notification helper for Drupal AJAX responses. It mirrors Drupal’s
 - Provides messenger-style helpers: `addStatus()`, `addWarning()`, `addError()`, `addInfo()`, and the generic `addNotification($message, $type, $timeout)`.
 - Front-end JS/CSS (`bm_notify/notify` library) displays toasts in the bottom-right corner.
 
+  <img width="636" height="634" alt="image" src="https://github.com/user-attachments/assets/f6c2a463-c8f6-4644-ba53-e0f64876619f" />
+
 ## How to use
 1) Declare a dependency on `bm_notify` (or ensure the service exists) and attach the library if you render messages:
 ```php
