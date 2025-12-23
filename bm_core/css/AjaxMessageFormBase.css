@@ -1,0 +1,13 @@
+.ajax-message-container {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.ajax-message-container:not(:empty) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ajax-message-container:empty {
+  opacity: 0;
+  transform: translateY(-6px);
+}

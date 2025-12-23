@@ -1,0 +1,5 @@
+name: BM Notifications
+type: module
+description: Display messages as notifications
+core_version_requirement: ^11
+package: BM Drupal Enhancements

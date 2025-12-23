@@ -1,0 +1,5 @@
+name: BM Core
+type: module
+description: Provides a base class to ajax form to better display and handle messages.
+core_version_requirement: ^11
+package: BM Drupal Enhancements

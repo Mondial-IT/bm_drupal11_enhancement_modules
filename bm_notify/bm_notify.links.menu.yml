@@ -1,0 +1,8 @@
+bm_notify.demo:
+  title: 'Notifications demo'
+  description: 'Preview BM Notify toasts and options.'
+  parent: bm_main.bluemarloc_enhancements
+  route_name: bm_notify.demo
+  weight: 50
+  options:
+    _admin_route: TRUE

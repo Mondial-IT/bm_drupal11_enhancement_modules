@@ -1,0 +1,3 @@
+services:
+  bm_notify:
+    class: Drupal\bm_notify\NotifyService

@@ -1,0 +1,9 @@
+notify:
+  js:
+    js/bm-notify.js: {}
+  css:
+    theme:
+      css/bm-notify.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupal.ajax

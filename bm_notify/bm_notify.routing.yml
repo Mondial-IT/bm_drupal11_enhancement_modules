@@ -1,0 +1,7 @@
+bm_notify.demo:
+  path: '/admin/blue-marloc/enhancements/notify-demo'
+  defaults:
+    _form: '\Drupal\bm_notify\Form\BmNotifyDemoForm'
+    _title: 'BM Notify demo'
+  requirements:
+    _permission: 'administer site configuration'
