@@ -6,7 +6,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SCRIPT="${SCRIPT_DIR}/../../../../../.scripts/push-to-github.sh"
 
 URL="https://github.com/Mondial-IT/bm_drupal11_enhancement_modules.git"
-DIR="bm_drupal_enhancement_modules"
+DIR="bm_drupal11_enhancement_modules"
 BRANCH="main"
 
 COMMIT_MESSAGE="${1:-}"
