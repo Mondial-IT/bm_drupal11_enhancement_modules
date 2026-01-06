@@ -1,0 +1,8 @@
+bm_tooltip.admin_demo:
+  title: 'Tooltips demo'
+  description: 'Preview bm_tooltip themes and positions.'
+  parent: bm_main.bluemarloc_enhancements
+  route_name: bm_tooltip.admin_demo
+  weight: 55
+  options:
+    _admin_route: TRUE

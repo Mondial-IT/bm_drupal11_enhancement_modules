@@ -1,0 +1,35 @@
+bm_panels.state_load:
+  path: '/bm-panels/state/{collection}'
+  defaults:
+    _controller: '\Drupal\bm_panels\Controller\PanelAjaxController::loadState'
+  requirements:
+    _permission: 'access bm panels'
+  options:
+    _format: 'json'
+  methods: [GET]
+
+bm_panels.state_save:
+  path: '/bm-panels/state/{collection}'
+  defaults:
+    _controller: '\Drupal\bm_panels\Controller\PanelAjaxController::saveState'
+  requirements:
+    _permission: 'access bm panels'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+bm_panels.example_basic:
+  path: '/admin/blue-marloc/enhancements/bm-panels/basic'
+  defaults:
+    _form: '\Drupal\bm_panels\Form\PanelsBasicExampleForm'
+    _title: 'BM Panels basic example'
+  requirements:
+    _permission: 'administer site configuration'
+
+bm_panels.example_ajax:
+  path: '/admin/blue-marloc/enhancements/bm-panels/ajax'
+  defaults:
+    _form: '\Drupal\bm_panels\Form\PanelsAjaxExampleForm'
+    _title: 'BM Panels AJAX example'
+  requirements:
+    _permission: 'administer site configuration'

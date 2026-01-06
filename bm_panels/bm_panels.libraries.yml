@@ -1,0 +1,11 @@
+bm_panels.core:
+  css:
+    theme:
+      css/bm_panels.css: {}
+      https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css: { type: external, minified: true, crossorigin: anonymous }
+  js:
+    js/bm_panels.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/once

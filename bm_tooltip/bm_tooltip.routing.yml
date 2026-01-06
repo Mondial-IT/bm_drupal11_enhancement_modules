@@ -1,0 +1,15 @@
+bm_tooltip.demo:
+  path: '/bm-tooltip/demo'
+  defaults:
+    _controller: '\Drupal\bm_tooltip\Controller\DemoController::demo'
+    _title: 'BlueMarloc Tooltip Demo'
+  requirements:
+    _permission: 'access content'
+
+bm_tooltip.admin_demo:
+  path: '/admin/blue-marloc/enhancements/tooltip-demo'
+  defaults:
+    _form: '\Drupal\bm_tooltip\Form\BmTooltipDemoForm'
+    _title: 'Tooltip demo (admin)'
+  requirements:
+    _permission: 'administer site configuration'

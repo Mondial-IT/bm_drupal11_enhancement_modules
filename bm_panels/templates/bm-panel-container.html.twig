@@ -1,0 +1,25 @@
+{# Wrapper that renders a group of bm_panel templates. #}
+{% set instance_id = attributes['data-bm-panels-instance']|default('') %}
+{% set container_attributes = attributes.addClass('bm-panel-container') %}
+{% set panels_markup %}
+  {% if panels is not empty %}
+    {% for panel in panels %}
+      {{ panel }}
+    {% endfor %}
+  {% else %}
+    <div class="bm-panel__placeholder">{{ 'No panels supplied.'|t }}</div>
+  {% endif %}
+{% endset %}
+
+{% if render_wrapper %}
+  <div class="bm-panels">
+    {{ toolbar }}
+    <div{{ container_attributes }}>
+      {{ panels_markup }}
+    </div>
+  </div>
+{% else %}
+  <div{{ container_attributes }}>
+    {{ panels_markup }}
+  </div>
+{% endif %}

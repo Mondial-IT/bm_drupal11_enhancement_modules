@@ -1,0 +1,62 @@
+---
+label: 'Using the bm_panels element'
+---
+{% extends "help_topics/help-topic.html.twig" %}
+{% set title = 'Using the bm_panels element'|t %}
+
+{% block help_topic_content %}
+  <p>{{ 'The custom Form API element wraps children with drag handles, resizers, and AJAX persistence. Each child can define its own behavior via the <code>#bm_panels</code> property.'|t }}</p>
+  <h2>{{ 'Basic usage'|t }}</h2>
+  {% set example_code %}
+$form["panels"] = [
+  "#type" => "bm_panels",
+  "#collection" => "dashboard_main",
+  "#palette" => [
+    [
+      "id" => "alerts",
+      "label" => $this->t("Alerts panel"),
+      "title" => $this->t("Alerts panel"),
+      "description" => $this->t("Tooltip text"),
+      "markup" => "<p>Notifications</p>",
+      "width" => 4,
+      "height" => 2,
+    ],
+  ],
+  "hero" => [
+    "#title" => $this->t("Welcome panel"),
+    "#description" => $this->t("Plain text tooltip"),
+    "#markup" => "<h3>Welcome</h3>",
+    "#bm_panels" => [
+      "draggable" => TRUE,
+      "removable" => FALSE,
+      "width" => 6,
+      "height" => 4,
+    ],
+  ],
+  "stats" => [
+    "#title" => $this->t("Stats"),
+    "#panel_description" => $this->t("Allows <strong>HTML</strong> in the popover."),
+    "#markup" => "<p>KPIs...</p>",
+  ],
+];
+  {% endset %}
+  <pre><code class="language-php">{{ example_code|e }}</code></pre>
+  <p>{{ 'Panel-specific options include:'|t }}</p>
+  <ul>
+    <li>{{ '<code>draggable</code> (bool): disable to lock a card in place.'|t }}</li>
+    <li>{{ '<code>removable</code> (bool): hide the “X” button when FALSE.'|t }}</li>
+    <li>{{ '<code>width</code>, <code>height</code>: integers 1..12 (grid units).'|t }}</li>
+  </ul>
+  <p>{{ 'Palette entries drive the automatic “Add panel” buttons rendered above the grid. Removed cards appear as chips so authors can reinsert them without a page refresh.'|t }}</p>
+  <p>{{ 'Set <code>#title</code>/<code>#description</code> (or <code>#panel_description</code> when you need markup) on each child so the draggable handle renders consistent labels and tooltips. Palette definitions accept the same keys (<code>title</code>, <code>description</code>, <code>panel_description</code>).'|t }}</p>
+  <h2>{{ 'Treat panels like sub-forms'|t }}</h2>
+  <p>{{ 'Keep <code>buildForm()</code> tidy by delegating each card to a <code>panel_*()</code> helper that returns the render array and wires its own AJAX validate/submit handlers.'|t }}</p>
+  {% set helper_example %}
+$form["panels"]["entity_selector"] = $this->panelEntitySelector($form_state);
+$form["panels"]["entity_fields"] = $this->panelEntityFields($form_state);
+  {% endset %}
+  <pre><code class="language-php">{{ helper_example|e }}</code></pre>
+  <p>{{ 'In the shipped demo the selector panel stores the chosen entity type in form state; the sibling fields panel reads that state so applying a new entity instantly refreshes the field list without affecting other cards—mirroring independent “sub-form” workflows.'|t }}</p>
+  <h2>{{ 'AJAX state'|t }}</h2>
+  <p>{{ 'The module posts JSON to <code>/bm-panels/state/{collection}</code> (with CSRF protection) and reloads layouts from the same route. Use <code>PanelService</code> if you need to seed defaults, reset layouts, or extend persistence.'|t }}</p>
+{% endblock %}

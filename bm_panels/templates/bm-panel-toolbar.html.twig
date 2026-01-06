@@ -1,0 +1,37 @@
+{% if visible %}
+  <div class="bm-panel__toolbar"
+       id="{{ toolbar_id }}"
+       data-bm-panels-toolbar="{{ instance_id }}">
+    {% if palette %}
+      <div class="bm-panel-controls" data-bm-panels-controls="{{ instance_id }}">
+        <div class="bm-panel-controls__title">{{ 'Add panel'|t }}</div>
+        <div class="bm-panel-controls__buttons">
+          {% for item in palette %}
+            <button type="button"
+                    class="bm-panel-add"
+                    data-panel-id="{{ item.id }}"
+                    data-panel-instance="{{ instance_id }}">
+              {{ 'Add @label'|t({'@label': item.label}) }}
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% set removed_select_id = 'bm-panels-removed-' ~ instance_id %}
+    <div class="bm-panel-removed"
+         data-bm-panels-removed="{{ instance_id }}"{% if removed_panels is empty %} hidden{% endif %}>
+      <label class="bm-panel-removed__label" for="{{ removed_select_id }}">{{ 'Removed panels:'|t }}</label>
+      <select id="{{ removed_select_id }}"
+              class="bm-panel-removed__select"
+              data-bm-panels-removed-select>
+        <option value="">{{ 'Select a panel to restore'|t }}</option>
+        {% for removed_panel in removed_panels %}
+          <option value="{{ removed_panel.id }}" data-panel-id="{{ removed_panel.id }}">
+            {{ removed_panel.title|default(removed_panel.label|default(removed_panel.id)) }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+{% endif %}

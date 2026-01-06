@@ -1,0 +1,22 @@
+{
+    "name": "bluemarloc/bm_tooltip",
+    "description": "BlueMarloc CSS-only tooltip system with Twig integration for Drupal 11.",
+    "type": "drupal-module",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.3",
+        "drupal/core": "^11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Drupal\\bm_tooltip\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

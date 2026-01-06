@@ -1,0 +1,17 @@
+{
+  "brand": "BlueMarloc",
+  "component": "Tooltip",
+  "variants": {
+    "theme": ["dark", "light", "accent", "brand"],
+    "position": ["top", "bottom", "left", "right"],
+    "pinned": ["yes", "no"]
+  },
+  "tokens": {
+    "color": {
+      "brand-blue": "#139ad0",
+      "brand-purple": "#7c30b9",
+      "brand-blue-bg": "#f1f9ff",
+      "brand-purple-bg": "rgba(173,26,185,0.05)"
+    }
+  }
+}

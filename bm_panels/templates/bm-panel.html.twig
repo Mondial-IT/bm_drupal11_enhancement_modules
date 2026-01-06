@@ -1,0 +1,71 @@
+{# Individual draggable panel. #}
+{% set pos = position|default({'x': 0, 'y': 0, 'width': 4, 'height': 3}) %}
+{% set config = panel_config|default({'draggable': true, 'removable': true}) %}
+{% set title = panel_title|default(label|default(panel_id)) %}
+{% set has_description = panel_description is not empty %}
+{% set description_text = has_description ? panel_description|striptags|trim : '' %}
+{% set classes = ['bm-panel'] %}
+{% if not config.draggable %}
+  {% set classes = classes|merge(['bm-panel--static']) %}
+{% endif %}
+{% if config.removed %}
+  {% set classes = classes|merge(['bm-panel--removed']) %}
+{% endif %}
+
+<div class="{{ classes|join(' ') }}"
+     data-panel-id="{{ panel_id }}"
+     data-panel-draggable="{{ config.draggable ? 'true' : 'false' }}"
+     data-panel-removable="{{ config.removable ? 'true' : 'false' }}"
+     data-panel-removed="{{ config.removed ? 'true' : 'false' }}"
+     {% if config.removed %}hidden aria-hidden="true"{% endif %}
+     style="--bm-panel-x: {{ pos.x|default(0) }}; --bm-panel-y: {{ pos.y|default(0) }}; --bm-panel-width: {{ pos.width|default(4) }}; --bm-panel-height: {{ pos.height|default(3) }};">
+  <div class="bm-panel__handle-row">
+    <div class="bm-panel__handle" role="button" tabindex="0" aria-label="{{ 'Drag panel'|t }}">
+      <div class="bm-panel__handle-grid">
+        {% if has_description %}
+          {{ tooltip(description_text, title, {
+            theme: 'dark',
+            position: 'bottom',
+            edge: true,
+            class: 'bm-panel__title-text'
+          }) }}
+        {% else %}
+          <span class="bm-panel__title-text">{{ title }}</span>
+        {% endif %}
+        <div class="bm-panel__actions">
+          {% if has_description %}
+            <button type="button"
+                    class="bm-panel__info tooltip tooltip--bottom tooltip--dark tooltip--edge-aware"
+                    aria-label="{{ 'Panel info'|t }}"
+                    data-bm-panels-stop-drag="true"
+                    data-tip="{{ description_text }}">
+              <span class="bm-panel__icon fa-solid fa-circle-info" aria-hidden="true"></span>
+            </button>
+          {% endif %}
+          {% if config.removable %}
+            <button type="button"
+                    class="bm-panel__remove tooltip tooltip--bottom tooltip--dark tooltip--edge-aware"
+                    aria-label="{{ 'Remove panel'|t }}"
+                    data-bm-panels-stop-drag="true"
+                    data-tip="{{ 'Remove panel'|t }}">
+              <span class="bm-panel__icon fa-solid fa-circle-xmark" aria-hidden="true"></span>
+            </button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr aria-hidden="true">
+  <div class="bm-panel__body">
+    {% if show_meta %}
+      <div class="bm-panel__meta">
+        <span class="bm-panel__meta-draggable">{{ config.draggable ? 'Configured as draggable'|t : 'Configured as non-draggable'|t }}</span>,
+        <span class="bm-panel__meta-removable">{{ config.removable ? 'removable'|t : 'pinned'|t }}</span>,
+        <span class="bm-panel__meta-size">{{ 'size @width×@height'|t({'@width': pos.width|default(4), '@height': pos.height|default(3)}) }}</span>
+      </div>
+    {% endif %}
+    {{ content }}
+  </div>
+
+  <span class="bm-panel__resizer" aria-hidden="true"></span>
+</div>

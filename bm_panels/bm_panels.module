@@ -1,0 +1,107 @@
+<?php
+declare(strict_types=1);
+
+use Drupal\bm_panels\Element\Panels;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_theme().
+ */
+function bm_panels_theme($existing, $type, $theme, $path): array {
+  $template_path = \Drupal::service('extension.path.resolver')
+    ->getPath('module', 'bm_panels') . '/templates';
+
+  return [
+    'bm_panel' => [
+      'variables' => [
+        'panel_id' => NULL,
+        'content' => NULL,
+        'position' => [],
+        'label' => NULL,
+        'panel_config' => [],
+        'panel_title' => NULL,
+        'panel_description' => NULL,
+        'show_meta' => FALSE,
+      ],
+      'template' => 'bm-panel',
+      'path' => $template_path,
+    ],
+    'bm_panel_container' => [
+      'variables' => [
+        'panels' => [],
+        'attributes' => [],
+        'palette' => [],
+        'removed_panels' => [],
+        'toolbar_visible' => TRUE,
+        'toolbar_id' => NULL,
+        'grid_id' => NULL,
+        'toolbar' => NULL,
+        'render_wrapper' => TRUE,
+      ],
+      'template' => 'bm-panel-container',
+      'path' => $template_path,
+    ],
+    'bm_panel_toolbar' => [
+      'variables' => [
+        'palette' => [],
+        'instance_id' => '',
+        'removed_panels' => [],
+        'toolbar_id' => NULL,
+        'visible' => TRUE,
+      ],
+      'template' => 'bm-panel-toolbar',
+      'path' => $template_path,
+    ],
+  ];
+}
+
+/**
+ * Implements hook_element_info().
+ */
+function bm_panels_element_info(): array {
+  return [
+    'bm_panels' => Panels::definition(),
+  ];
+}
+
+/**
+ * Implements hook_help().
+ */
+function bm_panels_help($route_name, RouteMatchInterface $route_match): string {
+  if ($route_name === 'help.page.bm_panels') {
+    $snippet = <<< 'PHP'
+$form['panels'] = [
+  '#type' => 'bm_panels',
+  'first_panel' => [
+    '#title' => $this->t('Primary insight'),
+    '#description' => $this->t('Shown inside the draggable handle.'),
+    '#markup' => '<p>Primary content</p>',
+  ],
+  'second_panel' => [
+    '#title' => $this->t('Secondary insight'),
+    '#panel_description' => $this->t('Optional HTML like <strong>bold</strong>.'),
+    '#markup' => '<p>Secondary content</p>',
+  ],
+];
+PHP;
+
+    $output = '<h2>' . t('Building panels quickly') . '</h2>';
+    $output .= '<p>' . t('Use <code>#type = bm_panels</code> to wrap any child elements in the module’s placeholder panel templates. The attached <code>bm_panels.core</code> library gives you CSS hooks and an ES6 behavior to expand later. Set <code>#title</code> and <code>#description</code> (or <code>#panel_description</code> when you need markup) on each child to populate the draggable handle automatically.') . '</p>';
+    $output .= '<pre><code>' . htmlspecialchars($snippet) . '</code></pre>';
+    $output .= '<p>' . t('Each child element key becomes <code>data-panel-id</code> so JavaScript logic can map DOM nodes to metadata or AJAX routes.') . '</p>';
+    $output .= '<h2>' . t('Where to start next') . '</h2>';
+    $overview_link = Link::fromTextAndUrl(t('BM Panels overview'), Url::fromRoute('help.help_topic', ['id' => 'bm_panels.overview']))->toString();
+    $element_link = Link::fromTextAndUrl(t('Using the bm_panels element'), Url::fromRoute('help.help_topic', ['id' => 'bm_panels.form_element']))->toString();
+    $output .= '<ul>';
+    $output .= '<li>' . t('Review the Help Topics for a deeper overview: @overview and @element.', [
+      '@overview' => $overview_link,
+      '@element' => $element_link,
+    ]) . '</li>';
+    $output .= '<li>' . t('Extend <code>PanelAjaxController::load()</code> for lazy-loaded content, or call <code>PanelService::getPanelMetadata()</code> to shape configuration data.') . '</li>';
+    $output .= '</ul>';
+    return $output;
+  }
+  return '';
+}

@@ -1,0 +1,26 @@
+bm_panels.examples_menu:
+  title: 'BM Panels'
+  description: 'Example forms demonstrating the BM Panels grid.'
+  parent: bm_main.bluemarloc_enhancements
+  route_name: bm_panels.example_basic
+  weight: 4
+  options:
+    _admin_route: TRUE
+
+bm_panels.basic_example:
+  title: 'BM Panels example'
+  description: 'Showcases the basic bm_panels element.'
+  parent: bm_panels.examples_menu
+  route_name: bm_panels.example_basic
+  weight: 5
+  options:
+    _admin_route: TRUE
+
+bm_panels.ajax_example:
+  title: 'BM Panels AJAX example'
+  description: 'Demonstrates metadata + AJAX usage.'
+  parent: bm_panels.examples_menu
+  route_name: bm_panels.example_ajax
+  weight: 6
+  options:
+    _admin_route: TRUE

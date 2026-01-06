@@ -1,0 +1,30 @@
+---
+label: 'Using the bm_tooltip Twig helper'
+---
+{% extends "help_topics/help-topic.html.twig" %}
+{% set title = 'Using the bm_tooltip Twig helper'|t %}
+
+{% block help_topic_content %}
+  <p>{{ 'The Twig helper wraps the TooltipService so you can describe the tooltip in PHP/Twig without hand-writing HTML. Pass the text, the visible label, and an options array.'|t }}</p>
+  <h2>{{ 'Basic usage'|t }}</h2>
+  <pre><code>{{ "{{ tooltip('Explain the bundle selector.', 'Bundle selector', {
+  theme: 'dark',
+  position: 'bottom',
+  edge: true,
+  class: 'bm-panel__title-text'
+}) }}"|t }}</code></pre>
+  <ul>
+    <li>{{ 'The helper renders a focusable element (default tag is <code>&lt;span&gt;</code>) with the appropriate <code>data-tip</code>, classes, and <code>tabindex</code>.'|t }}</li>
+    <li>{{ 'Switch to a different tag (for example a button) by passing <code>{ tag: \"button\" }</code> in the options array.'|t }}</li>
+    <li>{{ 'When you supply <code>attributes</code> in the options array, they are merged into the final tag so you can set <code>aria-label</code> or <code>type</code> without additional markup.'|t }}</li>
+    <li>{{ 'Use <code>parent: true</code> when the tooltip trigger sits inside another draggable element such as bm_panels handles. This prevents nested tooltips from overlapping incorrectly.'|t }}</li>
+  </ul>
+  <h2>{{ 'Attaching the library'|t }}</h2>
+  <p>{{ 'Attach <code>bm_tooltip/tooltip</code> in the form/controller render array: <code>$form[#attached][library][] = \"bm_tooltip/tooltip\";</code> (the helper does not auto-attach).'|t }}</p>
+  <h2>{{ 'Accessibility tips'|t }}</h2>
+  <ul>
+    <li>{{ 'Keep tooltip text short. If you need more than a couple sentences, use an info panel or modal instead.'|t }}</li>
+    <li>{{ 'Provide a meaningful <code>aria-label</code> when the trigger icon has no readable text on screen.'|t }}</li>
+    <li>{{ 'If the tooltip is purely decorative, omit it entirely instead of sending empty text to the helper.'|t }}</li>
+  </ul>
+{% endblock %}

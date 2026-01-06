@@ -1,0 +1,23 @@
+tooltip:
+  css:
+    component:
+      https://unpkg.com/tippy.js@6.3.7/dist/tippy.css: { type: external }
+      css/components/tooltip.css: {}
+  js:
+    https://unpkg.com/@popperjs/core@2.11.8/dist/umd/popper.min.js: { type: external, attributes: { defer: true } }
+    https://unpkg.com/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js: { type: external, attributes: { defer: true } }
+    js/tooltip.js: { attributes: { defer: true } }
+  dependencies:
+    - core/drupal
+    - core/once
+
+tooltip-demo:
+  js:
+    js/tooltip-demo.js: { attributes: { defer: true } }
+  css:
+    component:
+      css/components/tooltip.css: {}
+      css/BMTooltipDemoForm.css: {}
+  dependencies:
+    - core/drupal
+    - core/once

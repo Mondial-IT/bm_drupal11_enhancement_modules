@@ -1,0 +1,113 @@
+:root {
+  --bm-bluemarloc-blue: #139ad0;
+  --bm-bluemarloc-blue-background: #f1f9ff;
+  --bm-bluemarloc-purple: #7c30b9;
+  --bm-bluemarloc-purple-background: rgb(173, 26, 185, 5%);
+  --bm-gradient: linear-gradient(90deg, #ad1ab9, var(--bm-bluemarloc-blue));
+  --bm-gradient-background: linear-gradient(30deg, var(--bm-bluemarloc-blue-background), var(--bm-bluemarloc-blue-background), var(--bm-bluemarloc-blue-background), var(--bm-bluemarloc-purple-background));
+
+  --bm-blue: #139ad0;
+  --bm-navy: #3f99f1;
+  --bm-cyan: #0dcaf0;
+  --bm-purple: #7c30b9;
+  --bm-blueviolet: blueviolet;
+  --bm-violet: violet;
+  --bm-darkturquoise: darkturquoise;
+  --bm-green: #198754;
+  --bm-lightgreen: lightgreen;
+  --bm-teal: #20c997;
+  --bm-indigo: #6610f2;
+  --bm-pink: #d63384;
+  --bm-lightpink: color-mix(in srgb, #d63384 20%, white);
+  --bm-red: #dc3545;
+  --bm-orange: #fd7e14;
+  --bm-yellow: #ffc107;
+  --bm-white: #fff;
+  --bm-gray: #6c757d;
+  --bm-gray-dark: #343a40;
+  --bm-light: #d4d8db;
+  --bm-dark: #0f172a;
+
+  font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.tooltip {
+  position: relative;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  outline: none;
+}
+
+.tooltip:focus-visible {
+  outline: 2px solid var(--bm-blue);
+  outline-offset: 3px;
+}
+
+.tippy-box {
+  font-family: inherit;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  border-radius: 0.5rem;
+  padding: 0.55rem 0.9rem;
+  box-shadow: 0 8px 26px rgba(15, 23, 42, 0.2);
+  min-width: var(--bm-tooltip-min-width, var(--bm-tooltip-min, auto));
+  max-width: min(22rem, calc(100vw - 1rem));
+  background: var(--bm-dark);
+  color: var(--bm-white);
+}
+
+.tippy-box[data-theme~='dark'] {
+  background: var(--bm-dark);
+  color: var(--bm-white);
+}
+
+.tippy-box[data-theme~='light'] {
+  background: var(--bm-white);
+  color: var(--bm-dark);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+}
+
+.tippy-box[data-theme~='accent'] {
+  background: var(--bm-bluemarloc-purple);
+  color: var(--bm-white);
+  box-shadow: 0 8px 26px rgba(124, 48, 185, 0.35);
+}
+
+.tippy-box[data-theme~='brand'] {
+  background: var(--bm-bluemarloc-blue);
+  color: var(--bm-white);
+  box-shadow: 0 8px 26px rgba(19, 154, 208, 0.35);
+}
+
+.tippy-content {
+  word-break: break-word;
+}
+
+.tippy-box[data-animation='shift-away-subtle'][data-state='hidden'] {
+  opacity: 0;
+  transform: translateY(2px);
+}
+
+.tippy-box[data-animation='shift-away-subtle'][data-state='visible'] {
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+
+.tippy-arrow {
+  color: inherit;
+}
+
+.tippy-box[data-theme~='light'] > .tippy-arrow::before {
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.1);
+}
+
+.tippy-box[data-theme~='dark'] > .tippy-arrow::before,
+.tippy-box[data-theme~='accent'] > .tippy-arrow::before,
+.tippy-box[data-theme~='brand'] > .tippy-arrow::before {
+  box-shadow: none;
+}
+
+.tooltip--is-parent .tooltip {
+  pointer-events: auto;
+}

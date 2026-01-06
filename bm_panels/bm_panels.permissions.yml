@@ -1,0 +1,3 @@
+access bm panels:
+  title: 'Access BM Panels layouts'
+  description: 'Allows users to load and save BM Panels layouts via AJAX.'

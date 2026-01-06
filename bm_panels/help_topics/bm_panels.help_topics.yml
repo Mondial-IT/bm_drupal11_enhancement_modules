@@ -1,0 +1,9 @@
+bm_panels.overview:
+  title: 'BM Panels overview'
+  body: help_topics/bm_panels.overview
+  weight: 0
+bm_panels.form_element:
+  title: 'Using the bm_panels element'
+  body: help_topics/bm_panels.form_element
+  parent: bm_panels.overview
+  weight: 10

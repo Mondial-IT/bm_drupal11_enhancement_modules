@@ -1,0 +1,6 @@
+services:
+  bm_panels.service:
+    class: Drupal\bm_panels\Service\PanelService
+    arguments:
+      - '@keyvalue'
+      - '@current_user'

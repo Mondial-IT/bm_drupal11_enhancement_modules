@@ -1,0 +1,23 @@
+---
+label: 'BM Panels overview'
+top_level: true
+---
+{% extends "help_topics/help-topic.html.twig" %}
+{% set title = 'BM Panels overview'|t %}
+
+{% block help_topic_content %}
+  <p>{{ 'BM Panels provides a production-ready drag grid with snapping, collision detection, add/remove controls, and AJAX persistence.'|t }}</p>
+  <h2>{{ 'Key components'|t }}</h2>
+  <ul>
+    <li>{{ 'Theme hooks <code>bm_panel</code> + <code>bm_panel_container</code> render the draggable tiles and wrapper UI.'|t }}</li>
+    <li>{{ 'Form element <code>#type = bm_panels</code> exposes per-panel configuration (<code>#bm_panels[draggable]</code>, <code>#bm_panels[removable]</code>, width/height, etc.).'|t }}</li>
+    <li>{{ 'Panel handles read the child element <code>#title</code>/<code>#description</code> and optional <code>#panel_description</code> so every tile gets a consistent label + tooltip.'|t }}</li>
+    <li>{{ 'Palette controls (via <code>#palette</code>) surface “Add panel” buttons that inject templated content on the fly.'|t }}</li>
+    <li>{{ 'PanelService stores panel metadata/state, while /bm-panels/state/{collection} routes load/save JSON layouts.'|t }}</li>
+  </ul>
+  <div class="help-topic-callout">
+    <strong>{{ 'Preventing scroll jumps with AJAX'|t }}</strong>
+    <p>{{ 'When you refresh panels via Drupal\'s AJAX API, the framework auto-focuses the first element inside the refreshed wrapper which can scroll the browser unexpectedly. Add <code>#ajax["disable-refocus"] = TRUE</code> (and an <code>effect</code> of "none" if desired) to the triggering element so the viewport remains stable during sub-form updates.'|t }}</p>
+  </div>
+  <p>{{ 'The included example forms illustrate reset buttons, palette usage, and the removed-panel registry so authors can drop panels, undo the action, and persist everything without page refreshes.'|t }}</p>
+{% endblock %}

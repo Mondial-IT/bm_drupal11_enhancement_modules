@@ -1,0 +1,9 @@
+bm_tooltip.overview:
+  title: 'BM Tooltip overview'
+  body: help_topics/bm_tooltip.overview
+  weight: 0
+bm_tooltip.twig_helper:
+  title: 'Using the bm_tooltip Twig helper'
+  body: help_topics/bm_tooltip.twig_helper
+  parent: bm_tooltip.overview
+  weight: 10

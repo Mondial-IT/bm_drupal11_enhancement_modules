@@ -1,0 +1,9 @@
+services:
+  bm_tooltip.twig.tooltip_extension:
+    class: Drupal\bm_tooltip\Twig\TooltipExtension
+    arguments: ['@bm_tooltip.tooltip_service']
+    tags:
+      - { name: twig.extension }
+
+  bm_tooltip.tooltip_service:
+    class: Drupal\bm_tooltip\Service\TooltipService

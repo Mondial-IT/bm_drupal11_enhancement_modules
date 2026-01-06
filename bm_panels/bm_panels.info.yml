@@ -1,0 +1,8 @@
+name: 'BM Panels'
+type: module
+description: 'Provides panel layout components and a custom Form API element.'
+core_version_requirement: ^11
+package: 'Blue Marloc'
+version: 0.1.0
+dependencies:
+  - bm_tooltip:bm_tooltip

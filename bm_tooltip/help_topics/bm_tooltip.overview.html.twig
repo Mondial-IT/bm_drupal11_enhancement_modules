@@ -1,0 +1,22 @@
+---
+label: 'BM Tooltip overview'
+top_level: true
+---
+{% extends "help_topics/help-topic.html.twig" %}
+{% set title = 'BM Tooltip overview'|t %}
+
+{% block help_topic_content %}
+  <p>{{ 'BM Tooltip centralizes how inline help is rendered throughout Life After Me. It ships a Twig helper, a service that builds CSS classes, and a reusable library (`bm_tooltip/tooltip`) that themes the popovers.'|t }}</p>
+  <h2>{{ 'Key concepts'|t }}</h2>
+  <ul>
+    <li>{{ 'Attach the <code>bm_tooltip/tooltip</code> library once per render array (forms, controllers, bm_panels, etc.). The library provides CSS only—no extra JavaScript is required.'|t }}</li>
+    <li>{{ 'Use the Twig helper <code>{{ tooltip(text, label, options) }}</code> to emit the markup. It handles classes, tabindex, and <code>data-tip</code> storage automatically.'|t }}</li>
+    <li>{{ 'Tooltips are short, inline hints. If the explanation is longer than a couple sentences, fall back to paragraphs or modal content instead of overloading the tooltip.'|t }}</li>
+    <li>{{ 'Every tooltip trigger must remain focusable. The helper defaults to <code>tabindex="0"</code> when you render a <code>&lt;span&gt;</code> trigger so keyboard users receive the same information.'|t }}</li>
+  </ul>
+  <div class="help-topic-callout">
+    <strong>{{ 'Where styles live'|t }}</strong>
+    <p>{{ 'All tooltip styling resides in <code>modules/custom/bm_tooltip/css/components/tooltip.css</code>. If a theme needs overrides, create an additional library there and extend the existing classes rather than duplicating markup.'|t }}</p>
+  </div>
+  <p>{{ 'The bm_tooltip module is environment-agnostic: it works the same inside Claro, Gavias, or custom admin themes because everything is built with neutral CSS + attributes.'|t }}</p>
+{% endblock %}

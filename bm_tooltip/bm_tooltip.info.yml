@@ -1,0 +1,7 @@
+name: BlueMarloc Tooltip
+type: module
+description: 'CSS-only tooltip system for Drupal 11 with Twig extension and BlueMarloc branding.'
+package: Blue Marloc
+core_version_requirement: ^11
+libraries:
+  - bm_tooltip/tooltip
