@@ -1,0 +1,17 @@
+{
+  "name": "mondial-it/mute_afiv_requirement",
+  "description": "Custom Drupal 11 module mute_afiv_requirement",
+  "type": "drupal-custom-module",
+  "license": "proprietary",
+  "require": {
+    "php": ">=8.1",
+    "drupal/core": "^11"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Drupal\\mute_afiv_requirement\\": "src/"
+    }
+  }
+}

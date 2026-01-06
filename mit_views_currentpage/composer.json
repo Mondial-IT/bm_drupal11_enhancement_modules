@@ -1,0 +1,17 @@
+{
+    "name": "mondial-it/mit_views_currentpage",
+    "description": "Custom Drupal 11 module mit_views_currentpage",
+    "type": "drupal-custom-module",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.1",
+        "drupal/core": "^11"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Drupal\\mit_views_currentpage\\": "src/"
+        }
+    }
+}

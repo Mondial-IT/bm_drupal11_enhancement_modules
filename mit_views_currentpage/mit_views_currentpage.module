@@ -1,0 +1,77 @@
+<?php
+
+/**
+ * @file
+ * Mondial-IT views_currentpage module.
+ */
+
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mit_views_currentpage_form_views_ui_edit_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+{
+  if (isset($form['override'])) {
+    if (isset($form['override']['#options']['default'])) {
+      $form['override']['#default_value'] = 'page_published';
+    }
+  }
+}
+
+
+/**
+ * Implements hook_page_attachments().
+ */
+function mit_views_currentpage_page_attachments(array &$attachments)
+{
+  $route = \Drupal::routeMatch()->getRouteName();
+
+  // Drupal::logger(__FUNCTION__)->info('on route '.$route);
+  $route =\Drupal::routeMatch()->getRouteName();
+  if ($route === 'entity.view.edit_display_form' || $route === 'entity.view.edit_form') {
+    //  Drupal::logger('mit_views_currentpage ')->info('views_currentpage_page_attachments attached override js');
+    $attachments['#attached']['library'][] = 'mit_views_currentpage/mit_views_currentpage_override';
+  }
+}
+
+function mit_views_currentpage_help($route_name): array|string|null
+{
+  if ($route_name == 'system.modules_list') {
+    return t('Forces the Views “Save” target to default to Current display. See the Help topic for details.');
+  }
+  if ($route_name == 'help.page.mit_views_currentpage') {
+    $output = '
+
+    <h2>Overview</h2>
+<p>
+ On editing Views the default "save" is set to update ALL pages.
+  Which means on all defined pages of this view the field will be added or changed.
+  Usually ONLY the current page needs to get the new or altered field.
+</p>
+<p>  And a mistake is easily made ...
+</p>
+<p>
+  This module overrides the default save mode to `current page`.
+</p>
+
+<h2>Use case</h2>
+<p>
+  Enabling this module is useful to set Views save (update) standard to Current Page.
+</p>
+
+    ';
+
+    $output .= '<h2>' . t('Related topics') . '</h2>';
+
+    $link = Link::fromTextAndUrl(
+      t('Help Topics overview'),
+      Url::fromRoute('help.main')
+    )->toString();
+
+    $output .= '<p>' . t('See the') . ' ' . $link . ' ' . t('for detailed how-to guides.') . '</p>';
+    return $output;
+  }
+  return null;
+}

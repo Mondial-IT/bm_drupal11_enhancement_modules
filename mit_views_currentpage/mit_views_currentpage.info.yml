@@ -1,0 +1,9 @@
+name: 'Mondial-IT Views Default to Current page'
+type: module
+description: 'Forces the Views “Save” target to default to Current display.'
+core_version_requirement: ^11
+package: Mondial-IT
+version: beta
+help: help/topic/mit_views_currentpage.overview
+dependencies:
+  - drupal:help

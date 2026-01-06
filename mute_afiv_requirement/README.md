@@ -1,0 +1,26 @@
+# mute_avif_requirement
+
+modules\custom\mondial-it\mute_avif_requirement
+
+<h2>Overview</h2>
+<p>
+  The <strong>Mute AVIF Requirement</strong> module removes the
+  “Supported image file formats” row from the Status report and downgrades any
+  AVIF-related requirements to <em>OK</em> with no description during runtime.
+</p>
+
+<p>This is what the warning looks like:<br />
+  <i>2.3.3<br />
+  Supported image file formats: GIF, JPEG, PNG, WEBP.<br />
+  Unsupported image file format: AVIF.<br />
+  Check the PHP GD installation documentation if you want to add support.<br />
+  AVIF is not supported, likely because of PHP missing a codec for encoding images. See the change record for more information.<br />
+  </i>
+
+</p>
+
+<h2>Use case</h2>
+<p>
+  Enabling this module is useful when AVIF support is intentionally disabled or not needed,
+  This module will then keep the Status report clean and focused on actionable issues.
+</p>

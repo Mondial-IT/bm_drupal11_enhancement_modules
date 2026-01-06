@@ -1,0 +1,6 @@
+mit_views_currentpage_override:
+  js:
+    js/mit_views_currentpage_override.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
