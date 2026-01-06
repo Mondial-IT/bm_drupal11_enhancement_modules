@@ -3,9 +3,11 @@
 # BlueMarloc - Drupal 11 - SAAS CMS
 
 ___
-## Knowledge management platform
+## Drupal Enhancement modules
 
-These modules provide knowledge to AI in a managed, secured and human validated way. With as key design principles: enhancing Drupal not replacing it. Exposing knowledge, but only in a curated way. Exposing various forms: HelpTopics, Nodes, Content, Documents, Taxonomies. Organized through taxonomies, which themselves are organized by humans and AI support. With the end-goal having AI's conversations where business can rely on knowledge which is curated and has detailed permissions of use.
+These modules enhance the functionality of Drupal 11 specifically.
+
+
 
 ## Drupal 11
 Drupal 11 is the latest major release of the open-source content management framework widely used for enterprise websites, portals, and headless content APIs. It builds on the stability and modular design of Drupal 10 while modernizing its core to take advantage of the latest versions of PHP, Symfony, and Twig. The platform provides developers with flexible content modeling, multilingual capabilities, and a mature caching system that can scale efficiently for high-traffic environments. Its focus on API-first design makes it ideal for integration with decoupled frontends, mobile apps, and third-party services.

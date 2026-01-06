@@ -1,0 +1,16 @@
+# mit_views_currentpage
+
+\modules\custom\mit_views_currentpage
+
+
+<h2>Overview</h2>
+<p>
+  This module forces the Views UI to default the “Save” target to <em>Current display</em>,
+  reducing accidental changes to all displays in a view.
+</p>
+
+<h2>Use case</h2>
+<p>
+  Enable this when editors frequently forget to switch from “All displays” to “Current display”
+  while adding or modifying fields and handlers.
+</p>
