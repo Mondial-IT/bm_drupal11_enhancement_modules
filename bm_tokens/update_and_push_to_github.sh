@@ -5,9 +5,9 @@ SCRIPT_NAME="update_and_push_to_github.sh"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SCRIPT="${SCRIPT_DIR}/../../../../../.scripts/push-to-github.sh"
 
-URL="https://github.com/Mondial-IT/bm_drupal11_enhancement_modules.git"
-DIR="bm_drupal_enhancement_modules"
-BRANCH="main"
+URL="https://github.com/Mondial-IT/bm_tokens.git"
+DIR="bm_tokens"
+BRANCH="d9-conversion-to-d11"
 
 COMMIT_MESSAGE="${1:-}"
 shift || true

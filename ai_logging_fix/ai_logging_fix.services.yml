@@ -1,0 +1,5 @@
+services:
+  ai_logging_fix.route_subscriber:
+    class: Drupal\ai_logging_fix\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

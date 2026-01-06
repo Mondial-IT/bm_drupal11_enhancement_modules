@@ -1,0 +1,7 @@
+name: 'AI Logging Admin Menu Fix'
+type: module
+description: 'Hides AI Logging field UI routes from admin toolbar/menu.'
+core_version_requirement: ^11
+package: 'BM Drupal Enhancements'
+dependencies:
+  - ai:ai_logging

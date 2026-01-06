@@ -1,0 +1,51 @@
+<?php
+
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+
+
+/**
+ * Creates the relation between the form element definition
+ *
+ * in a form definition:
+ *
+ * * `#type=>bm_theme_switcher` and
+ * * `Element\ThemeSwitcher.php` and
+ * * `templates\bm-theme-switcher.html.twig`
+ *
+ * * Which displays 3 buttons to switch dark, light and theme mode with.
+ *
+ *
+ * @return array[]
+ */
+function bm_core_theme(): array {
+  return [
+    'bm_theme_switcher' => [
+      'render element' => 'elements',
+      'template' => 'bm-theme-switcher',
+    ],
+  ];
+}
+
+
+/**
+ * Implements hook_preprocess_bm_theme_switcher().
+ */
+function bm_core_preprocess_bm_theme_switcher(array &$variables): void {
+  // Attach library to ensure CSS/JS are present wherever the theme switcher is rendered.
+  $variables['#attached']['library'][] = 'bm_core/theme_switcher';
+}
+
+
+
+function bm_core_help($route_name, RouteMatchInterface $route_match) {
+  if ($route_name === 'help.page.bm_core') {
+    return '<p>BM Core provides reusable UI utilities.
+            This module includes a theme switcher component allowing users to toggle Light, Dark, or System color modes.
+            </p>
+            <p>
+            See <a href="/admin/config/bm-core/theme-switcher-demo"> ThemeSwitcherDemoForm</a> for more examples.
+            </p>';
+  }
+}

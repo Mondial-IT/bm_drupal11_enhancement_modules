@@ -1,0 +1,30 @@
+bm_tokens.overview:
+  class: 'Drupal\help\HelpTopicTwig'
+  title: 'Blue Marloc Tokens: Overview'
+  label: 'BM Enhancing Tokens'
+  category: 'Content authoring'
+  weight: 0
+  top_level: true
+  related:
+    - bm_tokens.tokens
+    - bm_tokens.examples
+
+bm_tokens.tokens:
+  class: 'Drupal\help\HelpTopicTwig'
+  title: 'Blue Marloc Tokens: Available Tokens'
+  category: 'Content authoring'
+  weight: 1
+  top_level: false
+  related:
+    - bm_tokens.overview
+    - bm_tokens.examples
+
+bm_tokens.examples:
+  class: 'Drupal\help\HelpTopicTwig'
+  title: 'Blue Marloc Tokens: Examples & Recipes'
+  category: 'Content authoring'
+  weight: 2
+  top_level: false
+  related:
+    - bm_tokens.overview
+    - bm_tokens.tokens

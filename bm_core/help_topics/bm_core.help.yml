@@ -1,0 +1,5 @@
+# bm_core/help/bm_core.help.yml
+name: BM Core
+description: Reusable UI utilities and components.
+topics:
+  - bm_core.theme_switcher

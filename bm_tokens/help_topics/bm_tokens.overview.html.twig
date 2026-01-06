@@ -1,0 +1,32 @@
+---
+label: 'BM Enhancing Tokens'
+top_level: true
+related:
+- bm_tokens.examples
+- bm_tokens.tokens
+---
+{% set title = 'Blue Marloc Tokens: Overview' %}
+<h2>{{ title }}</h2>
+
+<p>
+  The <strong>Blue Marloc Tokens</strong> module adds custom tokens that can be
+  used in fields, blocks, and configuration where tokens are supported.
+</p>
+
+<h3>What you get</h3>
+<ul>
+  <li><code>[bluemarloc:year-next-month]</code> — Next month in <code>YYYY-MM</code>.</li>
+  <li><code>[bluemarloc:term:{tid}:{view_mode}]</code> — Render a taxonomy term in a specific view mode.</li>
+  <li><code>[bluemarloc:basic-node:*]</code> — Delegate to core Node tokens for Node ID 1 (e.g. <code>:title</code>).</li>
+</ul>
+
+<h3>Where tokens work</h3>
+<p>
+  Tokens typically work in field display formats, Metatag, Pathauto patterns,
+  and other contributed or core modules that support token replacement.
+</p>
+
+<p>
+  For details on syntax, see the <a href="/admin/help/topic/bm_tokens.tokens">Available Tokens</a>
+  and <a href="/admin/help/topic/bm_tokens.examples">Examples &amp; Recipes</a>.
+</p>

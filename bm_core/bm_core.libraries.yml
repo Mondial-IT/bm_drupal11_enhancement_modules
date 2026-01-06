@@ -1,0 +1,19 @@
+
+# provide 3 buttons to switch the theme with.
+theme_switcher:
+  css:
+    theme:
+      css/bm-theme-switcher.css: {}
+  js:
+    js/bm-theme-switcher.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
+# a demo page
+theme_switcher_demo:
+  css:
+    theme:
+      css/ThemeSwitcherDemoForm.css: {}
+  dependencies:
+    - core/drupal

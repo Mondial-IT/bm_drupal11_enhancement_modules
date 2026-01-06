@@ -1,0 +1,7 @@
+bm_tokens.help_overview:
+  path: '/admin/help/bm-tokens'
+  defaults:
+    _controller: '\Drupal\bm_tokens\Controller\HelpRedirectController::overview'
+    _title: 'Blue Marloc Tokens help'
+  requirements:
+    _permission: 'access administration pages'

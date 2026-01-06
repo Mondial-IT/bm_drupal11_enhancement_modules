@@ -1,0 +1,11 @@
+bm_tokens.settings_form:
+  title: 'Token enhancements'
+  description: 'Help topic describing enhanced tokens.'
+  parent: bm_main.bluemarloc_enhancements
+  route_name: help.help_topic
+  route_parameters:
+    module: bm_tokens
+    id: bm_tokens.overview
+  options:
+    _admin_route: TRUE
+  weight: 30

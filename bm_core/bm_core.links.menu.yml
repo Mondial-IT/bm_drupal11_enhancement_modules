@@ -1,0 +1,7 @@
+# bm_core/bm_core.links.menu.yml
+bm_core.theme_switcher_demo:
+  title: 'Theme Switcher Demo'
+  description: 'Demo form for the Theme Switcher component'
+  route_name: bm_core.theme_switcher_demo
+  parent: system.admin_config_ui
+  weight: 100

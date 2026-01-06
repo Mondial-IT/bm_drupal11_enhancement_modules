@@ -1,0 +1,44 @@
+---
+label: 'BM Enhancing Tokens how to'
+related:
+- bm_tokens.overview
+- bm_tokens.examples
+---
+{% set title = 'Blue Marloc Tokens: Available Tokens' %}
+<h2>{{ title }}</h2>
+
+<h3>Token namespace</h3>
+<p>
+  All custom tokens use the <code>bluemarloc</code> namespace.
+</p>
+
+<h3>Static date token</h3>
+<dl>
+  <dt><code>[bluemarloc:year-next-month]</code></dt>
+  <dd>Prints the first day of next month formatted as <code>YYYY-MM</code>.</dd>
+</dl>
+
+<h3>Taxonomy term render token</h3>
+<dl>
+  <dt><code>[bluemarloc:term:{tid}:{view_mode}]</code></dt>
+  <dd>
+    Renders the taxonomy term identified by <code>{tid}</code> using the
+    <code>{view_mode}</code> view mode for <em>taxonomy_term</em>.
+  </dd>
+  <dd>
+    Example: <code>[bluemarloc:term:261:taxonomy_term_micro]</code>
+  </dd>
+</dl>
+
+<h3>Basic node delegation</h3>
+<dl>
+  <dt><code>[bluemarloc:basic-node:*]</code></dt>
+  <dd>
+    Delegates to Node tokens for the node with ID <code>1</code>.
+    Examples:
+    <ul>
+      <li><code>[bluemarloc:basic-node:title]</code></li>
+      <li><code>[bluemarloc:basic-node:url]</code></li>
+    </ul>
+  </dd>
+</dl>

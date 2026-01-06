@@ -1,0 +1,25 @@
+{
+    "name": "bluemarloc/bm_drupal_enhancement_modules",
+    "description": "Modules: admin_reports, ai_logging_fix, bm_core, bm_module_report, bm_notify, menu_manage_admin, wiki",
+    "type": "drupal-custom-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Blue Marloc",
+            "email": "info@bluemarloc.com"
+        }
+    ],
+    "require": {
+        "drupal/core": "^10.2 || ^11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Drupal\\bm_debug_form_trace\\": "src/"
+        }
+    },
+    "extra": {
+        "drupal": {
+            "package": "Blue Marloc"
+        }
+    }
+}

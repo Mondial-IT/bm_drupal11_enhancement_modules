@@ -1,0 +1,8 @@
+# bm_core/bm_core.routing.yml
+bm_core.theme_switcher_demo:
+  path: '/admin/config/bm-core/theme-switcher-demo'
+  defaults:
+    _form: '\Drupal\bm_core\Form\ThemeSwitcherDemoForm'
+    _title: 'Theme Switcher Demo'
+  requirements:
+    _permission: 'administer site configuration'

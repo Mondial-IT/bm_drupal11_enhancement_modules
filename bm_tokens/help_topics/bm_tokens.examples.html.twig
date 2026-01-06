@@ -1,0 +1,33 @@
+---
+label: 'BM Enhancing Tokens examples'
+related:
+- bm_tokens.overview
+- bm_tokens.tokens
+---
+
+{% set title = 'Blue Marloc Tokens: Examples & Recipes' %}
+<h2>{{ title }}</h2>
+
+<h3>Show next month (YYYY-MM)</h3>
+<pre><code>[bluemarloc:year-next-month]</code></pre>
+
+<h3>Render a taxonomy term in a micro view mode</h3>
+<p>
+  Ensure a <em>taxonomy_term</em> view mode named <code>taxonomy_term_micro</code> exists and is configured.
+</p>
+<pre><code>[bluemarloc:term:261:taxonomy_term_micro]</code></pre>
+
+<h3>Chain with core Node tokens</h3>
+<p>
+  Use the <code>basic-node</code> prefix to chain into Node tokens for Node ID 1.
+</p>
+<pre><code>[bluemarloc:basic-node:title]
+[bluemarloc:basic-node:url]</code></pre>
+
+<h3>Troubleshooting</h3>
+<ul>
+  <li>Confirm the Token module is enabled.</li>
+  <li>Verify the term ID (<code>tid</code>) exists and is accessible.</li>
+  <li>Check that the view mode for <em>taxonomy_term</em> is enabled and has a display configured.</li>
+  <li>Clear caches after enabling or updating the module.</li>
+</ul>

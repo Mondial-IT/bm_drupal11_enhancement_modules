@@ -1,0 +1,31 @@
+
+/*noinspection CssInvalidFunction*/
+.bm-core-theme-switcher-demo-form {
+
+  .fieldset {
+    .fieldset__label {
+    }
+
+    .form-wrapper {
+      display: grid;
+      grid-template-columns:500px 500px;
+      gap: 1em;
+
+      input {
+      }
+
+      button {
+        background-color: var(--button--active-bg-color--primary);
+        color: var(--button-fg-color--primary);
+      }
+
+      > code {
+        font-family: 'system-ui', sans-serif;
+        font-size: 0.9em;
+        padding: 20px;
+        margin-block: 2em;
+      }
+
+    }
+  }
+}

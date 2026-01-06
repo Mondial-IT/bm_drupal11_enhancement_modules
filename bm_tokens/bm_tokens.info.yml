@@ -1,0 +1,8 @@
+name: Mondial-IT Token Enhancements
+type: module
+description: Mondial-IT Enhancements to Token module
+package: Mondial-IT
+core_version_requirement: ^11
+dependencies:
+  - bm_main:bm_main
+configure: bm_tokens.help_overview
