@@ -1,0 +1,16 @@
+---
+label: 'BM Fixing Ziston GMaps display'
+top_level: true
+related:
+- gmaps_fix.configure
+---
+<h2>{% trans %}Goal{% endtrans %}</h2>
+<p>{% trans %}Ensure Google Maps tiles load correctly in the Gavias Ziston theme by loading the Maps JavaScript API with the site’s configured key and correct script order.{% endtrans %}</p>
+
+<h2>{% trans %}What is this module?{% endtrans %}</h2>
+<p>{% trans %}<em>Google Maps Fix</em> injects the Google Maps JavaScript API once, using the key from the Gavias Ziston theme settings. It prevents duplicate script tags and avoids initialization before the map container is visible.{% endtrans %}</p>
+
+<h2>{% trans %}Related topics{% endtrans %}</h2>
+<ul>
+  <li>{{ help_topic_link('bm_gmaps_fix.configure') }}</li>
+</ul>

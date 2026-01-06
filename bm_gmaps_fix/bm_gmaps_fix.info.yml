@@ -1,0 +1,7 @@
+name: Mondial-IT Ziston Google Maps display fix
+type: module
+description: Mondial-IT - Google Maps fix - fixes gmaps not being displayed in Gavias Ziston theme.
+core_version_requirement: ^10 || ^11
+package: Mondial-IT
+dependencies:
+  - bm_main:bm_main

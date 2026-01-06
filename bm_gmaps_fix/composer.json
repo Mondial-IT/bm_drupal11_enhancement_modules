@@ -1,0 +1,25 @@
+{
+    "name": "mondial-it/bm_gmaps_fix",
+    "description": "Fixes Gavias Ziston theme not displaying the google map images (while pins and rest work okay).",
+    "type": "drupal-custom-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Blue Marloc",
+            "email": "info@bluemarloc.com"
+        }
+    ],
+    "require": {
+        "drupal/core": "^10.2 || ^11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Drupal\\bm_gmaps_fix\\": "src/"
+        }
+    },
+    "extra": {
+        "drupal": {
+            "package": "Blue Marloc"
+        }
+    }
+}

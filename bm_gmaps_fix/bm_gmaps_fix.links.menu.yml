@@ -1,0 +1,11 @@
+bm_gmaps_fix.display_maps_fix:
+  title: 'Display Maps fix'
+  description: 'Help topic describing the Google Maps display fix.'
+  parent: bm_main.bluemarloc_enhancements
+  route_name: help.help_topic
+  route_parameters:
+    module: bm_gmaps_fix
+    id: bm_gmaps_fix.overview
+  options:
+    _admin_route: TRUE
+  weight: 30

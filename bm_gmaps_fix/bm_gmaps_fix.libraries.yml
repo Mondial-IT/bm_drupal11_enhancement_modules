@@ -1,0 +1,7 @@
+gmaps:
+  js:
+    js/bm-gmaps-loader.js: {}
+    js/bm-gmaps-fix.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
