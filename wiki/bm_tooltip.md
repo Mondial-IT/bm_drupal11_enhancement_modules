@@ -1,6 +1,6 @@
 # bm_tooltip – Tippy.js Tooltips for Drupal
 
-`bm_tooltip` provides a shared Drupal library, Twig helper, and CSS tokens that wrap the [Tippy.js](https://atomiks.github.io/tippyjs/) tooltip engine. It ships a single behavior that targets any element rendered with the `tooltip()` Twig function (or anything using the `.tooltip` class and a `data-tip` / `data-tippy-content` attribute).
+`bm_tooltip` provides a shared Drupal library, Twig helper, and CSS tokens that wrap the [Tippy.js](https://atomiks.github.io/tippyjs/) tooltip engine. It ships a single behavior that targets any element rendered with the `bm_tooltip()` Twig function (or anything using the `.tooltip` class and a `data-tip` / `data-tippy-content` attribute). When `data-tippy-content` is present but empty, the behavior will use the element’s inner HTML as rich tooltip content.
 
 ## Why Tippy.js?
 
@@ -15,7 +15,7 @@ The library is still delivered through the Drupal asset pipeline. No extra setup
 ## Usage
 
 ```twig
-{{ tooltip(
+{{ bm_tooltip(
   'Explain the metric shown in this tile.',
   'KPI label',
   {
@@ -44,7 +44,7 @@ $build['#attached']['library'][] = 'bm_tooltip/tooltip';
 The Twig helper outputs:
 
 - The `.tooltip` utility class plus matching modifiers (e.g. `tooltip--right`).
-- `data-tippy-content` with the translated text, or `data-tooltip-selector` / `data-tooltip` to use HTML markup.
+- `data-tippy-content` with the translated text, `data-tip`, or an empty `data-tippy-content` with inline HTML. You can also point to external markup with `data-tooltip-selector` / `data-tooltip`.
 - Optional attributes such as `data-bm-tooltip-theme`, `data-bm-tooltip-min-width`, `data-bm-tooltip-trigger`, etc.
 
 The Drupal behavior reads those attributes and initializes `tippy()` with sane defaults (`appendTo: body`, `animation: shift-away-subtle`, `offset: [0, 8]`, etc.).

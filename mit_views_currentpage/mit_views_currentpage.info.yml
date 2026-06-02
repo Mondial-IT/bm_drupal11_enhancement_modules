@@ -1,4 +1,4 @@
-name: 'Mondial-IT Views Default to Current page'
+name: 'MIT Views Default to Current page'
 type: module
 description: 'Forces the Views “Save” target to default to Current display.'
 core_version_requirement: ^11

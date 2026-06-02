@@ -1,0 +1,34 @@
+---
+label: 'BM Notify overview'
+top_level: true
+---
+{% set title = 'BM Notify overview'|t %}
+{% block help_topic_content %}
+<h2>What it does</h2>
+<p>BM Notify replaces page-level messages with small toast notifications on AJAX responses. It provides messenger-style helpers you can call from forms or controllers, then injects the toasts into any <code>AjaxResponse</code> via its service.</p>
+
+<h2>How to use</h2>
+<ol>
+  <li>Attach the library if you render notifications:
+    <pre><code class="language-php">$form['#attached']['library'][] = 'bm_notify/notify';</code></pre>
+  </li>
+  <li>Queue messages in your code:
+    <pre><code class="language-php">$notify = \Drupal::service('bm_notify');
+$notify->addStatus($this->t('Saved successfully.'));
+// Other types: addWarning(), addError(), addInfo(), addNotification($msg, $type, $timeout_ms)</code></pre>
+  </li>
+  <li>Before returning an <code>AjaxResponse</code>, append the notifications:
+    <pre><code class="language-php">$notify->addToResponse($response);
+return $response;</code></pre>
+  </li>
+</ol>
+
+<h2>Demo</h2>
+<p>Visit <code>/admin/blue-marloc/enhancements/notify-demo</code> (Blue Marloc → Enhancements → Notifications demo) to preview the toast behavior.</p>
+
+<h2>Notes</h2>
+<ul>
+  <li>Works alongside Drupal messenger; use when you prefer unobtrusive toasts over page-level messages.</li>
+  <li>Toast styling is in <code>css/bm-notify.css</code> and uses CSS variables (<code>--bm-notify-*</code>) for easy theming.</li>
+</ul>
+{% endblock %}

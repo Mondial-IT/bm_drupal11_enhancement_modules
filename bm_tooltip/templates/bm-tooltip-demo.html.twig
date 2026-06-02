@@ -3,38 +3,38 @@
 
   <h3>Themes</h3>
   <p>
-    {{ tooltip('Dark tooltip text', 'Dark Tooltip', {theme:'dark'}) }}
-    {{ tooltip('Light tooltip text', 'Light Tooltip', {theme:'light'}) }}
-    {{ tooltip('Accent tooltip text', 'Accent Tooltip', {theme:'accent'}) }}
-    {{ tooltip('Brand tooltip text', 'Brand Tooltip', {theme:'brand'}) }}
+    {{ bm_tooltip('Dark tooltip text', 'Dark Tooltip', {theme:'dark'}) }}
+    {{ bm_tooltip('Light tooltip text', 'Light Tooltip', {theme:'light'}) }}
+    {{ bm_tooltip('Accent tooltip text', 'Accent Tooltip', {theme:'accent'}) }}
+    {{ bm_tooltip('Brand tooltip text', 'Brand Tooltip', {theme:'brand'}) }}
   </p>
 
   <h3>Positions</h3>
   <p>
-    {{ tooltip('Top tooltip', 'Top', {theme:'brand', position:'top'}) }}
-    {{ tooltip('Right tooltip', 'Right', {theme:'brand', position:'right'}) }}
-    {{ tooltip('Bottom tooltip', 'Bottom', {theme:'brand', position:'bottom'}) }}
-    {{ tooltip('Left tooltip', 'Left', {theme:'brand', position:'left'}) }}
+    {{ bm_tooltip('Top tooltip', 'Top', {theme:'brand', position:'top'}) }}
+    {{ bm_tooltip('Right tooltip', 'Right', {theme:'brand', position:'right'}) }}
+    {{ bm_tooltip('Bottom tooltip', 'Bottom', {theme:'brand', position:'bottom'}) }}
+    {{ bm_tooltip('Left tooltip', 'Left', {theme:'brand', position:'left'}) }}
   </p>
 
   <h3>Edge Awareness</h3>
   <div style="width: 100%; display: flex; justify-content: space-between;">
-    {{ tooltip('Left edge protection', 'Left Edge', {theme:'accent', position:'top', edge:true}) }}
-    {{ tooltip('Right edge protection', 'Right Edge', {theme:'accent', position:'top', edge:true}) }}
+    {{ bm_tooltip('Left edge protection', 'Left Edge', {theme:'accent', position:'top', edge:true}) }}
+    {{ bm_tooltip('Right edge protection', 'Right Edge', {theme:'accent', position:'top', edge:true}) }}
   </div>
 
   <h3>Nested Tooltips</h3>
-  <div class="tooltip tooltip--top tooltip--dark tooltip--edge-aware tooltip--is-parent"
+  <div class="bm-tooltip bm-tooltip--top bm-tooltip--dark bm-tooltip--edge-aware bm-tooltip--is-parent"
        tabindex="0"
        data-tip="Parent tooltip">
 
-    <div class="tooltip tooltip--right tooltip--accent tooltip--edge-aware"
+    <div class="bm-tooltip bm-tooltip--right bm-tooltip--accent bm-tooltip--edge-aware"
          tabindex="1"
          data-tip="Child tooltip A">
       Child A
     </div>
 
-    <div class="tooltip tooltip--right tooltip--brand tooltip--edge-aware"
+    <div class="bm-tooltip bm-tooltip--right bm-tooltip--brand bm-tooltip--edge-aware"
          tabindex="1"
          data-tip="Child tooltip B">
       Child B

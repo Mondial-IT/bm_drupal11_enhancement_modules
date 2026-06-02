@@ -38,7 +38,7 @@ bm_tooltip/
 │
 ├── css/
 │   └── components/
-│       └── tooltip.css
+│       └── bm_tooltip.css
 │
 └── src/
     ├── Service/
@@ -114,7 +114,7 @@ services:
 tooltip:
   css:
     component:
-      css/components/tooltip.css: {}
+      css/components/bm_tooltip.css: {}
 ```
 
 ---
@@ -173,7 +173,7 @@ use Twig\TwigFunction;
 use Drupal\bm_tooltip\Service\TooltipService;
 
 /**
- * Twig extension providing the tooltip() function.
+* Twig extension providing the bm_tooltip() function.
  */
 class TooltipExtension extends AbstractExtension {
 
@@ -206,7 +206,7 @@ class TooltipExtension extends AbstractExtension {
 
 ---
 
-# 🎯 FILE: **css/components/tooltip.css**
+# 🎯 FILE: **css/components/bm_tooltip.css**
 
 This contains:
 
@@ -428,7 +428,7 @@ This contains:
 This module provides:
 
 - CSS-only tooltips
-- Twig function: `tooltip()`
+- Twig function: `bm_tooltip()`
 - Click-to-pin behavior
 - Nested tooltip support
 - Drupal library loading
@@ -454,7 +454,7 @@ Use tooltips whenever UI requires short hints, icons, or contextual help.
 ## Correct Twig Pattern
 
 ```twig
-{{ tooltip('Help text', 'Label', {
+{{ bm_tooltip('Help text', 'Label', {
   theme: 'brand',
   position: 'top',
   edge: true,

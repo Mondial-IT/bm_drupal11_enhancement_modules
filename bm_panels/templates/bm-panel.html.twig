@@ -23,7 +23,7 @@
     <div class="bm-panel__handle" role="button" tabindex="0" aria-label="{{ 'Drag panel'|t }}">
       <div class="bm-panel__handle-grid">
         {% if has_description %}
-          {{ tooltip(description_text, title, {
+          {{ bm_tooltip(description_text, title, {
             theme: 'dark',
             position: 'bottom',
             edge: true,

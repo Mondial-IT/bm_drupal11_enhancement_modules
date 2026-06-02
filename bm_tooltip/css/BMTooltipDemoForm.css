@@ -1,4 +1,8 @@
 .bm-tooltip-demo-admin-form {
+  .bm-tooltip-demo-developer {
+    border-left: 4px solid var(--color-gray-200);
+    padding-left: var(--space-m);
+  }
   .fieldset {
     .fieldset__label {
       border-bottom: 1px solid var(--input-border-color);
@@ -6,17 +10,19 @@
     }
     .form-wrapper {
       display: grid;
-      grid-template-columns:500px 500px;
-      gap:1em;
+      grid-template-columns:400px 1fr;
+      gap:2em;
       input{
         height: 2em;
-        width: 400px;
+        width: 350px;
         padding: 1em;
         border: 1px solid var(--input-border-color);
       }
       button{
         background-color: var(--button--active-bg-color--primary);
         color: var(--button-fg-color--primary);
+        width: 10em;
+        height: 4em;
       }
       code {
         font-family: 'system-ui', sans-serif;

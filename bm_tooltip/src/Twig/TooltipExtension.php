@@ -8,7 +8,7 @@ use Drupal\bm_tooltip\Service\TooltipService;
 use Drupal\Component\Utility\Html;
 
 /**
- * Twig extension providing the tooltip() function.
+ * Twig extension providing the bm_tooltip() function.
  */
 class TooltipExtension extends AbstractExtension {
 
@@ -20,7 +20,7 @@ class TooltipExtension extends AbstractExtension {
 
   public function getFunctions(): array {
     return [
-      new TwigFunction('tooltip', [$this, 'buildTooltip'], ['is_safe' => ['html']]),
+      new TwigFunction('bm_tooltip', [$this, 'buildTooltip'], ['is_safe' => ['html']]),
     ];
   }
 
@@ -36,7 +36,7 @@ class TooltipExtension extends AbstractExtension {
     $attributes['class'] = trim($classes);
     if ($tip !== '') {
       $attributes['data-tip'] = $tip;
-      $attributes['data-tippy-content'] = $tip;
+      $attributes['data-bm-tooltip-content'] = $tip;
     }
     if ($tab !== NULL) {
       $attributes['tabindex'] = (string) $tab;

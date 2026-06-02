@@ -2,6 +2,8 @@
 
 namespace Drupal\bm_tooltip\Service;
 
+use Drupal\Component\Utility\Html;
+
 /**
  * Provides helper functions for tooltip generation and configuration.
  */
@@ -16,7 +18,7 @@ class TooltipService {
     $edge = $options['edge'] ?? TRUE;
 
     $classes = [
-      'tooltip',
+      'bm-tooltip',
       "tooltip--{$position}",
       "tooltip--{$theme}",
     ];
@@ -39,6 +41,37 @@ class TooltipService {
     }
 
     return implode(' ', $classes);
+  }
+
+  /**
+   * Builds an inline tooltip icon for use in PHP render arrays.
+   */
+  public function buildIcon(string $tip, array $options = []): string {
+    $tag = $options['tag'] ?? 'span';
+    $label = $options['label'] ?? '?';
+    $tab = array_key_exists('tabindex', $options) ? $options['tabindex'] : 0;
+    $attributes = array_merge(
+      $this->buildDataAttributes($options),
+      $options['attributes'] ?? [],
+    );
+
+    $attributes['class'] = trim($this->buildClasses($options));
+    if ($tip !== '') {
+      $attributes['data-tip'] = $tip;
+      $attributes['data-bm-tooltip-content'] = $tip;
+    }
+    if ($tab !== NULL) {
+      $attributes['tabindex'] = (string) $tab;
+    }
+
+    $attributeString = $this->buildAttributeString($attributes);
+
+    return sprintf(
+      '<%1$s %2$s>%3$s</%1$s>',
+      Html::escape($tag),
+      $attributeString,
+      Html::escape((string) $label)
+    );
   }
 
   /**
@@ -115,6 +148,24 @@ class TooltipService {
     $position = strtolower((string) ($options['position'] ?? 'top'));
     $allowed = ['top', 'bottom', 'left', 'right'];
     return in_array($position, $allowed, TRUE) ? $position : 'top';
+  }
+
+  /**
+   * Builds a safe HTML attribute string.
+   */
+  protected function buildAttributeString(array $attributes): string {
+    $pairs = [];
+    foreach ($attributes as $name => $value) {
+      if ($value === NULL || $value === '') {
+        continue;
+      }
+      $pairs[] = sprintf(
+        '%s="%s"',
+        Html::escape($name),
+        Html::escape((string) $value)
+      );
+    }
+    return implode(' ', $pairs);
   }
 
 }

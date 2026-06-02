@@ -45,7 +45,7 @@ function bm_core_help($route_name, RouteMatchInterface $route_match) {
             This module includes a theme switcher component allowing users to toggle Light, Dark, or System color modes.
             </p>
             <p>
-            See <a href="/admin/config/bm-core/theme-switcher-demo"> ThemeSwitcherDemoForm</a> for more examples.
+            See <a href="/admin/config/bm-core/theme-switcher-demo"> DarkLightSwitcherDemoForm</a> for more examples.
             </p>';
   }
 }

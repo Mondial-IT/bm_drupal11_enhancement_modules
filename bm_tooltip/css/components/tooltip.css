@@ -111,3 +111,7 @@
 .tooltip--is-parent .tooltip {
   pointer-events: auto;
 }
+
+[data-tooltip=""]{
+  display: none;
+}

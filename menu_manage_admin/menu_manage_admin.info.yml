@@ -1,4 +1,4 @@
-name: 'Enhanced: Menu/Manage/Admin form'
+name: 'BM Enhanced: Menu/Manage/Admin form'
 type: module
 description: 'Enhances the admin menu manage page with collapse/expand, filters, and counts.'
 core_version_requirement: ^11

@@ -1,8 +1,30 @@
 bm_tooltip.admin_demo:
-  title: 'Tooltips demo'
+  title: 'Tooltips'
   description: 'Preview bm_tooltip themes and positions.'
-  parent: bm_main.bluemarloc_enhancements
+  parent: bm_main.bluemarloc_demos
+  route_name: help.help_topic
+  route_parameters:
+    module: bm_tooltip
+    id: bm_tooltip.overview
+  weight: 1
+  options:
+    _admin_route: TRUE
+#
+bm_tooltip.help_topic:
+  title: 'Help topic'
+  description: 'Help information.'
+  route_name: help.help_topic
+  route_parameters:
+    module: bm_tooltip
+    id: bm_tooltip.overview
+  parent: bm_tooltip.admin_demo
+  weight: 1
+  #
+bm_tooltip.demo:
+  title: 'Tooltips'
+  description: 'Preview bm_tooltip themes and positions.'
+  parent: bm_tooltip.admin_demo
   route_name: bm_tooltip.admin_demo
-  weight: 55
+  weight: 2
   options:
     _admin_route: TRUE

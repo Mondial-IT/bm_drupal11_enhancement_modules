@@ -10,4 +10,11 @@ bm_module_report.bm_main_report:
   description: 'See modules, their disk names, composer origin, and enabled state.'
   route_name: bm_module_report.report
   parent: bm_main.bluemarloc_developer
-  weight: 100
+  weight: 1
+#
+bm_module_report.demo:
+  title: 'Module Composer report'
+  description: 'See modules, their disk names, composer origin, and enabled state.'
+  route_name: bm_module_report.report
+  parent: bm_main.bluemarloc_demo_reports
+  weight: 1

@@ -1,8 +1,30 @@
 bm_notify.demo:
+  title: 'Notifications'
+  description: 'Preview BM Notify toasts and options.'
+  parent: bm_main.bluemarloc_demos
+  route_name: help.help_topic
+  route_parameters:
+    module: bm_notify
+    id: bm_notify.overview
+  weight: 1
+  options:
+    _admin_route: TRUE
+#
+bm_notify.help_topic:
+  title: 'Help topic'
+  description: 'Display help topic.'
+  route_name: help.help_topic
+  route_parameters:
+    module: bm_notify
+    id: bm_notify.overview
+  parent: bm_notify.demo
+  weight: 1
+  #
+bm_notify.demo_item:
   title: 'Notifications demo'
   description: 'Preview BM Notify toasts and options.'
-  parent: bm_main.bluemarloc_enhancements
+  parent: bm_notify.demo
   route_name: bm_notify.demo
-  weight: 50
+  weight: 2
   options:
     _admin_route: TRUE

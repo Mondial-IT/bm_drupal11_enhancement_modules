@@ -72,9 +72,9 @@ class PanelsAjaxExampleForm extends FormBase {
     ];
 
 $twigExample = <<<'TWIG'
-{{ tooltip(panel_description|striptags,
-           panel_title|default(panel_id),
-           { theme: 'dark', position: 'bottom', class: 'bm-panel__title-text' }) }}
+{{ bm_tooltip(panel_description|striptags,
+              panel_title|default(panel_id),
+              { theme: 'dark', position: 'bottom', class: 'bm-panel__title-text' }) }}
 TWIG;
 
     $form['twig_markup'] = [

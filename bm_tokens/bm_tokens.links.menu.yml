@@ -9,3 +9,27 @@ bm_tokens.settings_form:
   options:
     _admin_route: TRUE
   weight: 30
+# demo
+bm_tokens.demo:
+  title: 'Tokens'
+  description: 'Help topic describing enhanced tokens.'
+  parent: bm_main.bluemarloc_demos
+  route_name: help.help_topic
+  route_parameters:
+    module: bm_tokens
+    id: bm_tokens.overview
+  options:
+    _admin_route: TRUE
+  weight: 30
+
+bm_tokens.demo_item:
+  title: 'Help topic'
+  description: 'Help topic describing enhanced tokens.'
+  parent: bm_tokens.demo
+  route_name: help.help_topic
+  route_parameters:
+    module: bm_tokens
+    id: bm_tokens.overview
+  options:
+    _admin_route: TRUE
+  weight: 30

@@ -36,10 +36,18 @@
   };
 
   const getContent = (element) => {
-    const text = element.getAttribute('data-tippy-content') || element.getAttribute('data-tip');
-    if (text) {
-      return { content: text, allowHTML: false };
+    const hasTippyAttr = element.hasAttribute('data-bm-tooltip-content');
+    const textAttr = element.getAttribute('data-bm-tooltip-content') || element.getAttribute('data-tip');
+
+    if (textAttr && textAttr.trim() !== '') {
+      return { content: textAttr, allowHTML: false };
     }
+
+    // If data-bm-tooltip-content attribute exists but is empty, allow HTML from the element body.
+    if (hasTippyAttr && element.innerHTML.trim() !== '') {
+      return { content: element.innerHTML, allowHTML: true };
+    }
+
     const htmlSource = resolveHtmlSource(element);
     if (htmlSource) {
       return { content: htmlSource.innerHTML, allowHTML: true };
@@ -109,7 +117,7 @@
       if (typeof window.tippy !== 'function') {
         return;
       }
-      once('bm-tooltip', '.tooltip[data-tip], .tooltip[data-tippy-content], .tooltip[data-tooltip], .tooltip[data-tooltip-target], .tooltip[data-tooltip-selector]', context)
+      once('bm-tooltip', '.bm-tooltip[data-tip], .bm-tooltip[data-bm-tooltip-content], .bm-tooltip[data-tooltip], .bm-tooltip[data-tooltip-target], .bm-tooltip[data-tooltip-selector]', context)
         .forEach((element) => {
           const { content, allowHTML } = getContent(element);
           if (!content) {

@@ -1,4 +1,4 @@
-name: Mondial-IT Mute AFIV Warning module
+name: MIT Mute AFIV Warning module
 type: module
 description: "Hide/downgrade GD AVIF status report warning. - STUB FOR AFIV ERROR = AVIF"
 core_version_requirement: ^10 || ^11

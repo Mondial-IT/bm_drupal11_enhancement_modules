@@ -1,0 +1,4 @@
+bm_notify.overview:
+  title: 'BM Notify overview'
+  body: help_topics/bm_notify.overview
+  weight: 0

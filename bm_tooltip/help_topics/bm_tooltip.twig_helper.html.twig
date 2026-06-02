@@ -7,7 +7,7 @@ label: 'Using the bm_tooltip Twig helper'
 {% block help_topic_content %}
   <p>{{ 'The Twig helper wraps the TooltipService so you can describe the tooltip in PHP/Twig without hand-writing HTML. Pass the text, the visible label, and an options array.'|t }}</p>
   <h2>{{ 'Basic usage'|t }}</h2>
-  <pre><code>{{ "{{ tooltip('Explain the bundle selector.', 'Bundle selector', {
+  <pre><code>{{ "{{ bm_tooltip('Explain the bundle selector.', 'Bundle selector', {
   theme: 'dark',
   position: 'bottom',
   edge: true,
